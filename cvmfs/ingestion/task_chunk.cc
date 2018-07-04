@@ -95,6 +95,7 @@ void TaskChunk::Process(BlockItem *input_block) {
         unsigned offset_in_block = 0;
         uint64_t cut_mark = 0;
         while ((cut_mark = chunk_detector->FindNextCutMark(input_block)) != 0) {
+          printf("New cutmark: %lu\n", cut_mark);
           assert(cut_mark >= chunk_info.offset + offset_in_block);
           uint64_t cut_mark_in_block = cut_mark - chunk_info.offset;
           assert(cut_mark_in_block >= offset_in_block);
