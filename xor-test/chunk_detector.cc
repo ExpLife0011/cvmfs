@@ -132,7 +132,7 @@ int main(int argc, char **argv) {
 
   BlockItem item(buffer, nbytes);
 
-  Xor32Detector xor32_detector(512000, 2*512000, 4*512000);
+  Xor32Detector xor32_detector(32, 64, 128);
   uint64_t cut_mark;
   while ((cut_mark = xor32_detector.FindNextCutMark(&item)) != 0)
     printf("New cutmark: %lu\n", cut_mark);
